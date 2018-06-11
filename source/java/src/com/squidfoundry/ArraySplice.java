@@ -71,15 +71,14 @@ public final class ArraySplice extends BIF implements Function {
 				arrayToSplice.setE(last + delta, temp);
 			}
 		} else if(delta < 0) {
-			for (int last = end; last < length; last++) {
+			for (int last = end; last < arrayLength; last++) {
                 Object temp = arrayToSplice.getE(last);
                 arrayToSplice.setE(last + delta, temp);
             }
-            for (int k = arrayLength + delta; k < length; ++k) {
+            for (int k = arrayLength + delta; k < arrayLength; ++k) {
             	arrayToSplice.removeE(k);
             }
 		}
-		
 		
 		for(int i = 0; i < replacement.size(); i++) {
 			arrayToSplice.setE(begin + i, replacement.getE(i + 1));
