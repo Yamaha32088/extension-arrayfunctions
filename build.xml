@@ -89,7 +89,7 @@ start-bundles: true
 		<loadfile property="c1" srcFile="${fld}/functions.fld" />
 		<replace haystack="${c1}" needle="{bundle-name}" repl="${bundlename}" property="c2"/>
 		<replace haystack="${c2}" needle="{bundle-version}" repl="${bundleversion}${build.number}${appendix}" property="c3"/>
-		<echo message="${c3}" file="${dist}/extension/flds/functions.fld"/>
+		<echo message="${c3}" file="${dist}/extension/flds/array-functions.fld"/>
 		
 		<copy todir="${dist}/extension/jars">
 	      <fileset dir="${lib}">

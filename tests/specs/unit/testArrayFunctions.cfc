@@ -56,15 +56,7 @@ component displayname="My test suite" extends="testbox.system.BaseSpec" {
 	function testArraySpliceRemoveAllAfterThirdIndex() {
 		var myArray = ['angel', 'clown', 'mandarin', 'sturgeon'];
 		var removed = ArraySplice(myArray, 3);
-		$assert.isEqual(['mandarin', 'sturgeon'], removed);
-	}
-
-	function testArraySpliceRemoveTwoInsertOne() {
-		var myArray = ['angel', 'clown', 'mandarin', 'sturgeon'];
-		var replace = ['shark'];
-		var removed = ArraySplice(myArray, 3, 2, replace);
-		$assert.isEqual(['mandarin', 'sturgeon'], removed);
-		$assert.isEqual(['angel', 'clown', 'shark'], myArray);
+		$assert.isEqual(['mandarin', 'sturgeon'], removed);	
 	}
 
 }

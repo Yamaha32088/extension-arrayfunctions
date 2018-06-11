@@ -1,4 +1,4 @@
-package com.squidfoundry;
+package com.squidfoundry.array;
 
 import lucee.loader.engine.CFMLEngine;
 import lucee.loader.engine.CFMLEngineFactory;
