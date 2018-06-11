@@ -93,11 +93,7 @@ start-bundles: true
 		
 		<copy todir="${dist}/extension/jars">
 	      <fileset dir="${lib}">
-	        <include name="**/*.jar"/>
-	        <exclude name="**/javax.*"/>
-	        <exclude name="**/jsp-*"/>
-	        <exclude name="**/lucee.jar"/>
-	        <exclude name="**/org.apache.felix.framework-*"/>
+	        <exclude name="**/*.jar"/>
 	      </fileset>
 	    </copy>
 		
