@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Export-Package: com.squidfoundry
+Bundle-ManifestVersion: 2
+Class-Path: .
+Created-By: brandon
+Build-Jdk: 1.8

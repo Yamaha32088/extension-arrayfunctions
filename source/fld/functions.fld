@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE func-lib PUBLIC "-//Lucee//DTD CFML Function Library 1.0//EN"
+	"dtd/web-cfmfunctionlibrary_1_0.dtd">
+	<func-lib>
+		<flib-version>1.00</flib-version>
+		<short-name>Array Functions</short-name>
+		<uri>http://www.lucee.org/cf-fld-3-1</uri>
+		<display-name>Lucee Core Function Library</display-name>
+		<description>All build in Functions of Lucee</description>
+		<function>
+			<name>ArrayPop</name>
+			<class bundle-name="{bundle-name}" bundle-version="{bundle-version}">com.squidfoundry.ArrayPop</class>
+			<description>Removes the last element from an array and returns the value popped</description>
+			<argument>
+				<name>arrayToPop</name>
+				<type>array</type>
+				<required>yes</required>
+			</argument>
+			<return>
+				<type>any</type>
+			</return>
+		</function>
+		<function>
+			<name>ArrayShift</name>
+			<class bundle-name="{bundle-name}" bundle-version="{bundle-version}">com.squidfoundry.ArrayShift</class>
+			<description>Removes an element from the first index, shifts the values and returns the shifted element</description>
+			<argument>
+				<name>arrayToShift</name>
+				<type>array</type>
+				<required>yes</required>
+			</argument>
+			<return>
+				<type>any</type>
+			</return>
+		</function>
+		<function>
+			<name>ArraySplice</name>
+			<class bundle-name="{bundle-name}" bundle-version="{bundle-version}">com.squidfoundry.ArraySplice</class>
+			<description>Removes a portion of an array and replace it with something different</description>
+			<argument>
+				<name>input</name>
+				<type>array</type>
+				<required>yes</required>
+				<description>The Array to Shift</description>
+			</argument>
+			<argument>
+				<name>offset</name>
+				<type>number</type>
+				<required>yes</required>
+				<description>The index at which to start shifting</description>
+			</argument>
+			<argument>
+				<name>length</name>
+				<type>number</type>
+				<required>no</required>
+				<description>The number of array elements to delete</description>
+			</argument>
+			<argument>
+				<name>replacement</name>
+				<type>any</type>
+				<required>no</required>
+				<description>The values to replace in the array</description>
+			</argument>
+			<return>
+				<type>any</type>
+			</return>
+		</function>
+	</func-lib>

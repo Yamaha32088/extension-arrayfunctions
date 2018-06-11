@@ -1,0 +1,14 @@
+/dist
+**/Test.java
+**/.DS_Store
+**/.svn/
+/*.project
+va specific
+*.class
+target
+target/*
+*.lock
+*.DS_Store
+/build/
+/source/lucee-server/
+/source/java/libs/
