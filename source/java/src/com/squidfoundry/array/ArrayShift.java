@@ -17,7 +17,7 @@ public class ArrayShift extends BIF implements Function {
 		if(arrayToShift.size() > 0) {
 			return arrayToShift.removeE(1);
 		}
-		return arrayToShift;
+		return null;
 	}
 	
 	@Override

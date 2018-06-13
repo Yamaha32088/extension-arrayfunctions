@@ -14,10 +14,10 @@ public class ArrayPop extends BIF implements Function {
 	private static final long serialVersionUID = 849213838350625616L;
 
 	public static Object call(Array arrayToPop) throws PageException {
-		if(arrayToPop.size() > 1) { 
+		if(arrayToPop.size() > 0) { 
 			return arrayToPop.removeE(arrayToPop.size());
 		}
-		return arrayToPop;
+		return null;
 	}
 	
 	@Override
