@@ -30,7 +30,7 @@ public final class ArraySplice extends BIF implements Function {
 		return _call(arrayToSplice, offset, length, replacement);
 	}
 
-	public static Object _call(Array arrayToSplice, int offset, int length, Array replacement) throws PageException {
+	private static Object _call(Array arrayToSplice, int offset, int length, Array replacement) throws PageException {
 		cfmlEngine = CFMLEngineFactory.getInstance();
 		creator = cfmlEngine.getCreationUtil();
 		
@@ -94,20 +94,18 @@ public final class ArraySplice extends BIF implements Function {
 		caster = cfmlEngine.getCastUtil();
 		
 		if(args.length == 2) {
-			return call(caster.toArray(args[0]), caster.toIntValue(args[1]));
+			return call(caster.toArray(caster.toArray(args[0])), caster.toIntValue(args[1]));
 		}
 		
 		if(args.length == 3) {
-			return call(caster.toArray(args[0]), caster.toIntValue(args[1]), caster.toIntValue(args[2]));
+			return call(caster.toArray(caster.toArray(args[0])), caster.toIntValue(args[1]), caster.toIntValue(args[2]));
 		}
 		
-		if(args.length > 3) {
-			return call(caster.toArray(args[0]), caster.toIntValue(args[1]), caster.toIntValue(args[2]), caster.toArray(args[3]));
+		if(args.length == 4) {
+			return call(caster.toArray(caster.toArray(args[0])), caster.toIntValue(args[1]), caster.toIntValue(args[2]), caster.toArray(args[3]));
 		}
-		
 		
 		throw cfmlEngine.getExceptionUtil().createFunctionException(pc, "ArraySplice", 1, 4, args.length);
-		
 	}
 	
 	private static int calculateOffset(int offset, int arrayLength) {
