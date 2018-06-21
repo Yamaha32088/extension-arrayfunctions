@@ -5,3 +5,4 @@ This extension adds the following functions:
 ##### ArrayPop(arrayToPop)
 ##### ArrayShift(arrayToShift)
 ##### ArraySplice(arrayToSplice, offset [, length [, replacement]])
+##### ArrayIndexBy(array, keyOrClosure)
