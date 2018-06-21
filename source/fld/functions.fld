@@ -21,6 +21,24 @@
 			</return>
 		</function>
 		<function>
+			<name>ArrayIndexBy</name>
+			<class bundle-name="{bundle-name}" bundle-version="{bundle-version}">com.squidfoundry.array.ArrayIndexBy</class>
+			<description>Returns a new struct composed of the keys returned by the closure</description>
+			<argument>
+				<name>array</name>
+				<type>object</type>
+				<required>yes</required>
+			</argument>
+			<argument>
+				<name>key_or_closure</name>
+				<type>object</type>
+				<required>yes</required>
+			</argument>
+			<return>
+				<type>any</type>
+			</return>
+		</function>
+		<function>
 			<name>ArrayShift</name>
 			<class bundle-name="{bundle-name}" bundle-version="{bundle-version}">com.squidfoundry.array.ArrayShift</class>
 			<description>Removes an element from the first index, shifts the values and returns the shifted element</description>

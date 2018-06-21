@@ -59,4 +59,40 @@ component displayname="My test suite" extends="testbox.system.BaseSpec" {
 		$assert.isEqual(['mandarin', 'sturgeon'], removed);	
 	}
 
+	function testArrayIndexByKey() {
+		var myArray = [
+			{'type': 'fish', 'breed': 'angel'},
+			{'type': 'fish', 'breed': 'clown'},
+			{'type': 'fish', 'breed': 'mandarin'},
+			{'type': 'fish', 'breed': 'sturgeon'},
+			{'type': 'bear', 'breed': 'black'}
+		]
+
+		var results = ArrayIndexBy(myArray, 'breed');
+		$assert.isEqual(getIndexByExpected(), results);
+	}
+
+	function testArrayIndexByClosure() {
+		var myArray = [
+			{'type': 'fish', 'breed': 'angel'},
+			{'type': 'fish', 'breed': 'clown'},
+			{'type': 'fish', 'breed': 'mandarin'},
+			{'type': 'fish', 'breed': 'sturgeon'},
+			{'type': 'bear', 'breed': 'black'}
+		]
+
+		var results = ArrayIndexBy(myArray, (o) => arguments.o.breed);
+		$assert.isEqual(getIndexByExpected(), results);
+	}
+
+	private function getIndexByExpected() {
+		return {
+			'angel': {'type': 'fish', 'breed': 'angel'},
+			'clown': {'type': 'fish', 'breed': 'clown'},
+			'mandarin': {'type': 'fish', 'breed': 'mandarin'},
+			'sturgeon': {'type': 'fish', 'breed': 'sturgeon'},
+			'black': {'type': 'bear', 'breed': 'black'}
+		};
+	}
+
 }
