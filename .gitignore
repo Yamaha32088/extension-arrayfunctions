@@ -11,4 +11,3 @@ target/*
 *.DS_Store
 /build/
 /source/lucee-server/
-/source/java/libs/

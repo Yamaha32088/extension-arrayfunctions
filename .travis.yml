@@ -1,0 +1,42 @@
+language: java
+
+env:
+  matrix:
+    - ENGINE=lucee@5 COLDBOX_VERSION=5.1.0 ANT_TARGET=run-tests
+
+dist: trusty
+
+sudo: required
+
+before_install:
+  - sudo echo "deb http://downloads.ortussolutions.com/debs/noarch /" | sudo tee -a
+    /etc/apt/sources.list.d/commandbox.list
+
+install:
+  - sudo apt-get update && sudo apt-get --assume-yes --allow-unauthenticated install commandbox
+  - box install
+
+before_script:
+  - printf "\ncfengine=$ENGINE" >> test-harness/build.properties
+  - echo "************************ Runtime Properties ********************"
+  - cat test-harness/build.properties
+  - echo "************************ END Runtime Properties ********************"
+  - box server start name=$ENGINE port=8500
+
+script:
+  - ant build-for-tests -Dlucee.version="5.2.7.62"
+  - SERVERDIRECTORY="`box server info property=serverHomeDirectory`/WEB-INF/lucee-server/deploy/"
+  - cp dist/*.lex $SERVERDIRECTORY
+  - sudo bash test-harness/watchdirectory.sh $SERVERDIRECTORY
+  - box testbox run runner='http://127.0.0.1:8500/tests/runner.cfm'
+
+after_failure:
+  - cd $TRAVIS_BUILD_DIR
+  # Get response from test server to see what went wrong
+  - curl http://127.0.0.1:8500/tests/runner.cfm?reporter=text
+  # Spit out our Commandbox log in case we need to debug
+  - box server log name=$ENGINE
+  - cat `box system-log`
+
+notifications:
+   email: false

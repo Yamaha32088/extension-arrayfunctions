@@ -30,10 +30,7 @@ public final class ArraySplice extends BIF implements Function {
 		return _call(arrayToSplice, offset, length, replacement);
 	}
 
-	private static Object _call(Array arrayToSplice, int offset, int length, Array replacement) throws PageException {
-		cfmlEngine = CFMLEngineFactory.getInstance();
-		creator = cfmlEngine.getCreationUtil();
-		
+	private static Object _call(Array arrayToSplice, int offset, int length, Array replacement) throws PageException {	
 		int arrayLength = arrayToSplice.size();
 		int begin = calculateOffset(offset, arrayLength);
 		int count = length;
@@ -89,9 +86,9 @@ public final class ArraySplice extends BIF implements Function {
 
 	@Override
 	public Object invoke(PageContext pc, Object[] args) throws PageException {
-		
 		cfmlEngine = CFMLEngineFactory.getInstance();
 		caster = cfmlEngine.getCastUtil();
+		creator = cfmlEngine.getCreationUtil();
 		
 		if(args.length == 2) {
 			return call(caster.toArray(caster.toArray(args[0])), caster.toIntValue(args[1]));
